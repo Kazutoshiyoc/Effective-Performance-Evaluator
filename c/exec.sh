@@ -20,8 +20,9 @@ export Type="int"
 # 3重ループ
 ops_loop_assign="${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A} + 1"
 ops_loop_cmpare="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
+ops_loop_jump="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
 ops_loop_conditional_equation="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
-ops_loop="${ops_loop_assign} + ${ops_loop_cmpare} + ${ops_loop_conditional_equation}"
+ops_loop="${ops_loop_assign} + ${ops_loop_cmpare} + ${ops_loop_jump} + ${ops_loop_conditional_equation}"
 
 # ------------------------------------------------------------
 # Loop/Operator/LoadStoreRate = 3/0/0
@@ -94,8 +95,9 @@ export Type="double"
 # 3重ループ
 ops_loop_assign="${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A} + 1"
 ops_loop_cmpare="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
+ops_loop_jump="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
 ops_loop_conditional_equation="${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_B}*${MAX_LOOP_A} + ${MAX_LOOP_A}"
-ops_loop="${ops_loop_assign} + ${ops_loop_cmpare} + ${ops_loop_conditional_equation}"
+ops_loop="${ops_loop_assign} + ${ops_loop_cmpare} + ${ops_loop_jump} + ${ops_loop_conditional_equation}"
 
 # ------------------------------------------------------------
 # Loop/Operator/LoadStoreRate = 3/0/0
