@@ -1,5 +1,6 @@
 # 定義からOps数を計算
-export ops_num=$(echo "${ops_define}" | bc)
+ops_define=`echo ${ops_define} | sed 's/ //g'`
+export ops_num=$(echo | awk '{printf "%d", '${ops_define}'}')
 
 # コンパイル
 bash script/compile.sh

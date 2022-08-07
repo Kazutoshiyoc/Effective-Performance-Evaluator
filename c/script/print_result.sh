@@ -1,4 +1,4 @@
-error_divide_by_zero='Divide by zero'
+error_divide_by_zero='division by zero'
 
 # 実行時間が短すぎる場合の処理
 if [[ ${ops_per_sec_calced} =~ ${error_divide_by_zero} ]];
@@ -27,7 +27,8 @@ else
 
 	# 実行時間が長すぎる場合の処理（規定桁数: 8）
 	limit_sec__calc_time=99999.99
-	timeover_state=$(echo "${sec__exec_time} > ${limit_sec__calc_time}" | bc)
+	timeover_state=$(echo | awk "${sec__exec_time} > ${limit_sec__calc_time} {print 1}")
+	timeover_state=`echo ${timeover_state} | sed 's/^$/0/g'`
 	if [ ${timeover_state} -eq 1 ];
 	then
 		# 結果の出力
@@ -50,8 +51,12 @@ else
 
 	# Ops/secが大きすぎる場合の処理（規定桁数: 10）
 	limit_size_ops_per_sec=99999999.9
-	size_over_status__calced=$(echo "${ops_per_sec_calced} > ${limit_size_ops_per_sec}" | bc)
-	size_over_status__theoritical=$(echo "${ops_per_sec_theoritical} > ${limit_size_ops_per_sec}" | bc)
+	size_over_status__calced=$(echo | awk "${ops_per_sec_calced} > ${limit_size_ops_per_sec} {print 1}")
+	size_over_status__calced=`echo ${size_over_status__calced} | sed 's/^$/0/g'`
+
+	size_over_status__theoritical=$(echo | awk "${ops_per_sec_theoritical} > ${limit_size_ops_per_sec} {print 1}")
+	size_over_status__theoritical=`echo ${size_over_status__theoritical} | sed 's/^$/0/g'`
+
 	if [ ${size_over_status__calced} -eq 1 ] || [ ${size_over_status__theoritical} -eq 1 ];
 	then
 		# エラー表示
