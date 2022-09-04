@@ -47,6 +47,17 @@ export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
 bash script/compile_and_run.sh
 
 # ------------------------------------------------------------
+# Loop/Operator/LoadStoreRate = 3/4/4
+export LOLS="3/4/4"
+export LOLS_=${LOLS//\//_}
+
+# Opsの定義＆コンパイル＆実行
+ops_operator="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
+ops_loadstore="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
+export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
+bash script/compile_and_run.sh
+
+# ------------------------------------------------------------
 # Loop/Operator/LoadStoreRate = 3/5/0
 export LOLS="3/5/0"
 export LOLS_=${LOLS//\//_}
@@ -65,17 +76,6 @@ export LOLS_=${LOLS//\//_}
 # Opsの定義＆コンパイル＆実行
 ops_operator="50*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
 ops_loadstore="0"
-export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
-bash script/compile_and_run.sh
-
-# ------------------------------------------------------------
-# Loop/Operator/LoadStoreRate = 3/4/4
-export LOLS="3/4/4"
-export LOLS_=${LOLS//\//_}
-
-# Opsの定義＆コンパイル＆実行
-ops_operator="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
-ops_loadstore="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
 export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
 bash script/compile_and_run.sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,6 +118,17 @@ export LOLS_=${LOLS//\//_}
 # Opsの定義＆コンパイル＆実行
 ops_operator="1*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
 ops_loadstore="0"
+export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
+bash script/compile_and_run.sh
+
+# ------------------------------------------------------------
+# Loop/Operator/LoadStoreRate = 3/4/4
+export LOLS="3/4/4"
+export LOLS_=${LOLS//\//_}
+
+# Opsの定義＆コンパイル＆実行
+ops_operator="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
+ops_loadstore="4*${MAX_LOOP_C}*${MAX_LOOP_B}*${MAX_LOOP_A}"
 export ops_define="${ops_loop} + ${ops_operator} + ${ops_loadstore}"
 bash script/compile_and_run.sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
